@@ -16,8 +16,10 @@ using namespace ariel;
 
 TEST_CASE("Good Cases - Regular Operations")
 {
+    ifstream units_file{"units.txt"};
+    NumberWithUnits::read_units(units_file);
     string g_arr[7] = {"km", "m", "kg", "ton", "hour", "min", "USD"};
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 7; i++)
     {
         try
         {
@@ -54,7 +56,7 @@ TEST_CASE("Bad Cases - Oeprations Between Non Converting Units")
     string group_a[2] = {"km", "m"};
     string group_b[2] = {"kg", "ton"};
     string group_c[2] = {"hour", "min"};
-    string group_d[1] = {"USD"};
+    string group_d[2] = {"USD", "ILS"};
     string *groups[4] = {group_a, group_b, group_c, group_d};
     for (int i = 0; i < 20; i++)
     {
